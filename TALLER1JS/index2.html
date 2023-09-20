@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijeras</title>
+    <style>
+        #resultado {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Piedra, Papel o Tijeras</h1>
+    <p>Selecciona tu elección:</p>
+    <button onclick="jugar('Piedra')">Piedra</button>
+    <button onclick="jugar('Papel')">Papel</button>
+    <button onclick="jugar('Tijeras')">Tijeras</button>
+    <div id="resultado"></div>
+    <button onclick="redirigirPagina('index0.html')">VOLVER A INICIO</button>
+    <script>
+        function jugar(opcionJugador) {
+            var opciones = ["Piedra", "Papel", "Tijeras"];
+            var opcionComputadora = opciones[Math.floor(Math.random() * 3)];
+
+            var resultado = determinarGanador(opcionJugador, opcionComputadora);
+
+            var mensaje = `Jugador eligió ${opcionJugador}, Computadora eligió ${opcionComputadora}. `;
+            if (resultado === "empate") {
+                mensaje += "Es un empate.";
+            } else if (resultado === "jugador") {
+                mensaje += "¡Jugador gana!";
+            } else {
+                mensaje += "¡Computadora gana!";
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+
+        function determinarGanador(opcionJugador, opcionComputadora) {
+            if (opcionJugador === opcionComputadora) {
+                return "empate";
+            } else if (
+                (opcionJugador === "Piedra" && opcionComputadora === "Tijeras") ||
+                (opcionJugador === "Papel" && opcionComputadora === "Piedra") ||
+                (opcionJugador === "Tijeras" && opcionComputadora === "Papel")
+            ) {
+                return "jugador";
+            } else {
+                return "computadora";
+            }
+        }
+
+        function redirigirPagina(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

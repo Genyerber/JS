@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Personal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+         .titulo {
+            font-size: 40px;
+            color:red;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2 class="titulo">TALLER 1 JS</h2>
+        <h1>ESTUDIANTE: Genyerber Daniel Ordoñez Hernández</h1>
+        <h1>CODIGO: 1005065390</h1>
+       
+        <button onclick="redirigirPagina('index.html')">DESARROLLO 1</button>
+        <button onclick="redirigirPagina('index2.html')">DESARROLLO 2</button>
+        <button onclick="redirigirPagina('index3.html')">DESARROLLO 3</button>
+    </div>
+
+    <script>
+        function redirigirPagina(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

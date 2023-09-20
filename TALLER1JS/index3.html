@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Adivina el número (entre 1 y 100)</h1>
+        <p>Introduce un número:</p>
+        <input type="number" id="numeroAdivinanza" min="1" max="100">
+        <button onclick="comprobarAdivinanza()">Adivinar</button>
+        <p id="mensaje"></p>
+
+        <button onclick="redirigirPagina('index0.html')">VOLVER A INICIO</button>
+    </div>
+    
+    <script>
+        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        var intentos = 0;
+
+        function comprobarAdivinanza() {
+            var numeroUsuario = parseInt(document.getElementById("numeroAdivinanza").value);
+            intentos++;
+
+            if (numeroUsuario === numeroAleatorio) {
+                document.getElementById("mensaje").innerHTML = `¡Correcto! Has adivinado el número ${numeroAleatorio} en ${intentos} intentos.`;
+                alert(`¡Correcto! Has adivinado el número ${numeroAleatorio} en ${intentos} intentos.`);
+                reiniciarJuego();
+            } else if (numeroUsuario < numeroAleatorio) {
+                document.getElementById("mensaje").innerHTML = "Más alto.";
+            } else {
+                document.getElementById("mensaje").innerHTML = "Más bajo.";
+            }
+        }
+
+        function reiniciarJuego() {
+            numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+            intentos = 0;
+            document.getElementById("numeroAdivinanza").value = "";
+            document.getElementById("mensaje").innerHTML = "";
+        }
+
+
+        function redirigirPagina(url) {
+            window.location.href = url;
+        }
+    
+    </script>
+</body>
+</html>
